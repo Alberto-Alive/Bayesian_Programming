@@ -40,3 +40,5 @@ print("P_dice = Uniform(1..6)")
 
 for i in range(2):
     print(f"{i+1}th throw:", P_dice.draw())
+
+
