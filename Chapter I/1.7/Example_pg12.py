@@ -12,10 +12,11 @@ dice_value = plValues(dice)
 P_dice = plUniform(dice)
 
 # print it
-print ’P_dice = ’, P_dice
+print('P_dice =', P_dice)
+
 
 # perform two random draws with the distribution
 # and print the result
 for i in range(2):
     P_dice.draw(dice_value)
-    print i+1,’th trow’, dice_value
+    print(i+1, 'th throw', dice_value)
