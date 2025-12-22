@@ -1,0 +1,1 @@
+Chapter one is more of an argumentation to why probabilities are an alternative to logic aka human logic given they can be used to derive results from incomplete information.
