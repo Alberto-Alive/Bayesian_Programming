@@ -21,19 +21,22 @@
 #     P_dice.draw(dice_value)
 #     print(i+1, 'th throw', dice_value)
 
-
-
 import random
 
-dice_vals = range(1, 7)
+class DiscreteUniform:
+    def __init__(self, values):
+        self.values = list(values)
 
-def draw_dice():
-    """ simulate dice draw"""
-    return random.choice(dice_vals)
+    def draw(self):
+        return random.choice(self.values)
 
+# define variable domain
+dice_values = range(1, 7)
 
-# draw twice
+# define uniform distribution
+P_dice = DiscreteUniform(dice_values)
 
-for n in range(2):
-    value = draw_dice()
-    print(f"{n+1}th throw: {value}")
+print("P_dice = Uniform(1..6)")
+
+for i in range(2):
+    print(f"{i+1}th throw:", P_dice.draw())
