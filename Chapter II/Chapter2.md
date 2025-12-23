@@ -25,3 +25,7 @@ probability distribution on a given variable X should neccessarily be normalized
 Σ P([X == xi]) = 1 for all values xi that X can take.
 
 however the book will use the simpler form: Σ P(X) = 1
+
+2.4 Conditional Probability (pg19)
+
+When the probability of a variable depends on the value of another variable and it read probability of a given b where given mathematially is represented as a pipe |, we call it conditional probability.
