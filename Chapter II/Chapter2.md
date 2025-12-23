@@ -18,3 +18,10 @@ P([Spam == false]) = 0.25% means that there is a 0.25% chance that the email is 
 The implication from 2.2 when a variable is either true/false is that it forces the sum of probabilities to always add up to 1.
 
 P([Spam == true]) + P([Spam == false]) = 1
+
+The normalization postulate property applies to any discrete variable (a variable that can take a value from a countable set) and consequently the 
+probability distribution on a given variable X should neccessarily be normalized:
+
+Σ P([X == xi]) = 1 for all values xi that X can take.
+
+however the book will use the simpler form: Σ P(X) = 1
