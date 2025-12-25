@@ -73,3 +73,7 @@ P(~a | ~b) = 1 - P(a | ~b)                     [normalization postulate]
           = 1 - (P(a) * 0) / P(~b)
           = 1 - 0
           = 1
+
+2.8 The marginalization rule
+so this one is about finding the probability you care about by adding up all the ways it can happen even involving thins you don't care about.
+
