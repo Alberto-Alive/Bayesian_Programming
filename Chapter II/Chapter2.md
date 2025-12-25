@@ -63,3 +63,13 @@ in layman: syllogism is about logic, what must be true if something else is true
 Using probabilities, we can express this as:
 1. Modus Ponens: P(b | a) = 1, which means that knowing that a is true then we may be sure that b is true.
 2. Modus Tollens: P(~a | ~b) = 1, which means that knowing that b is false then we may be sure that a is false.
+
+
+Let's derive P(~a | ~b) = 1 from P(b | a) = 1 using normalization (prob distr of var X norm to 1) and conjunction (bayes theorem) postulates:
+
+
+P(~a | ~b) = 1 - P(a | ~b)                     [normalization postulate]
+          = 1 - (P(a) * P(~b | a)) / P(~b)   [conjunction postulate]
+          = 1 - (P(a) * 0) / P(~b)
+          = 1 - 0
+          = 1
