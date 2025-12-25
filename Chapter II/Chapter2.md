@@ -29,3 +29,29 @@ however the book will use the simpler form: Σ P(X) = 1
 2.4 Conditional Probability (pg19)
 
 When the probability of a variable depends on the value of another variable and it read probability of a given b where given mathematially is represented as a pipe |, we call it conditional probability.
+
+Σ P(X | Y) = 1
+
+2.5 Variable conjunction
+
+the more specific things you assume are all true at once (ike "this bug is caused by bad input and null values"), the less likely that explanation is - unless evidence shows otherwise.
+
+P(Spam ^ W0 ^ W1 ^ ... ^ Wn+1)
+
+2.6 The conjunction postulate (bayes theorem)
+
+The conjunction postulate states that the probability of a conjunction of variables is equal to the product of the conditional probabilities of each variable given all the preceding variables in the conjunction.
+
+P(X ^ Y) = P(X) * P(Y | X)
+         = P(Y) * P(X | Y)
+
+this rule is known in the form of:
+P(Y | X) = (P(Y) * P(X | Y)) / P(X)
+
+2.7 Syllogisms
+
+Modus Ponens: a ^ [a -> b]  => b
+if a is true and if a implies b then b is true
+
+Modus Tollens: ~b ^ [a -> b] => ~a
+if b is false and if a implies b then a is false
