@@ -77,3 +77,15 @@ P(~a | ~b) = 1 - P(a | ~b)                     [normalization postulate]
 2.8 The marginalization rule
 so this one is about finding the probability you care about by adding up all the ways it can happen even involving thins you don't care about.
 
+the marginalization rule is a weird one, you have the joint probabilities of say two events:
+
+P: "the pc turns on"
+C: "the power plug is connected"
+
+p1: plug connected ^ pc turns on 70%
+p2: plug connected and pc doesn't turn on 10%
+p3: plug not connected and pc turns on 0%
+p4: plug not connected and pc doesn't turn on 20%
+
+so when you want to marginalise one probability over another, say P over C, and you want to figure out the probability of the pc turning on, you make the other probability take all the possible states: thus we select
+p1 and p2 where plug is connected making C be either pc doesn't turn on (p2) and pc turns on (p1)
