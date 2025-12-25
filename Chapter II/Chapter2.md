@@ -55,3 +55,11 @@ if a is true and if a implies b then b is true
 
 Modus Tollens: ~b ^ [a -> b] => ~a
 if b is false and if a implies b then a is false
+
+
+
+in layman: syllogism is about logic, what must be true if something else is true: given we know prior from maths that every umber divisible by 9 is also divisible by 3, then we we get a problem saying x is divisible by 9, we can conclude that x is also divisible by 3. 
+
+Using probabilities, we can express this as:
+1. Modus Ponens: P(b | a) = 1, which means that knowing that a is true then we may be sure that b is true.
+2. Modus Tollens: P(~a | ~b) = 1, which means that knowing that b is false then we may be sure that a is false.
