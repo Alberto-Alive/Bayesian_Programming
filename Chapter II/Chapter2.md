@@ -89,3 +89,6 @@ p4: plug not connected and pc doesn't turn on 20%
 
 so when you want to marginalise one probability over another, say P over C, and you want to figure out the probability of the pc turning on, you make the other probability take all the possible states: thus we select
 p1 and p2 where plug is connected making C be either pc doesn't turn on (p2) and pc turns on (p1)
+
+
+2.9 Joint distribution page 23
