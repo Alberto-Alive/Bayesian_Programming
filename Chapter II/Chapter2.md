@@ -95,3 +95,13 @@ p1 and p2 where plug is connected making C be either pc doesn't turn on (p2) and
 The joint distribution on a set of two variables X and Y is the distribution on their conjunction: P(X^Y) which reads as the probability of X taking some value and Y taking some value which in practice is the following table over all combinations:
 
 ![alt text](image.png)
+
+
+The idea is if you know the joint distribution you know the other 4 distributions that help you answer any probability question about X and Y:
+
+1. P(X,Y) - joint distribution
+2. P(X) - marginal distribution of X
+3. P(Y) - marginal distribution of Y
+4. P(X | Y) - conditional distribution of X given Y
+5. P(Y | X) - conditional distribution of Y given X
+
