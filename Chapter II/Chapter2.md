@@ -92,3 +92,6 @@ p1 and p2 where plug is connected making C be either pc doesn't turn on (p2) and
 
 
 2.9 Joint distribution page 23
+The joint distribution on a set of two variables X and Y is the distribution on their conjunction: P(X^Y) which reads as the probability of X taking some value and Y taking some value which in practice is the following table over all combinations:
+
+![alt text](image.png)
