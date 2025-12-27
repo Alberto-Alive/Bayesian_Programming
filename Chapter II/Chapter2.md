@@ -105,3 +105,4 @@ The idea is if you know the joint distribution you know the other 4 distribution
 4. P(X | Y) - conditional distribution of X given Y
 5. P(Y | X) - conditional distribution of Y given X
 
+2.10 Decomposition page 25
