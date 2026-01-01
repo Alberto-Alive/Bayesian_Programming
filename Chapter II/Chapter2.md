@@ -140,3 +140,33 @@ Let's move on to tweaking the stimation aka Laplace smoothing.
 The main point we're trying to reach here is to get rid of the zero probability for unseen events (which in our case is where a word never appeared in spam emails before but appears now).
 
 Currently we have the histogram form of the formula that account for what we see in the data (raw counting) but when we see something new, we get a zero probability. Thus we introduce smoothing and shift towards the parametric form of the formula which is just a tiny built in extra count so unseen things don't become impossible (i.e. zero probs).
+
+Let's see the maths:
+
+- what we're trying to do:
+for each word Wn (like "free", "viagra", etc), we want:
+
+P(Wn == true | Spam == true) chance of the word appearing given it's spam and  P(Wn == false | Spam == true) chance the word appears given it's not spam
+
+And we also need the overall spam probability:
+
+P(Spam == true) = 0.75
+P(Spam == false) = 0.25
+
+The naive counting would be the histogram model:
+
+![Histogram](image-1.png)
+
+
+That formula problem comes when a^nt = 0 (word never appeared in spam emails before) making the whole probability zero.
+
+P(Wn == true | Spam == true) = 0 / a^t = 0
+
+We fix it by Laplace smoothing ("add-one"):
+![Laplace](image-2.png)
+
+Because Wn is binary (true/false) then |Wn| can take two values (|Wn| = 2) thus:
+![Replace Wn](image-3.png)
+
+which allows for non zero probability when word was never seen in spam: if a^nt = 0 then:
+P(Wn == true | Spam == true) = (1 + 0) / (2+ a^t) > 0
