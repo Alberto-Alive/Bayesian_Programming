@@ -106,3 +106,37 @@ The idea is if you know the joint distribution you know the other 4 distribution
 5. P(Y | X) - conditional distribution of Y given X
 
 2.10 Decomposition page 25
+
+A Bayesian programmer has to specify a way to compute the joint distribution sothat it has three main qualities of being a good model, easy to compute, and easy to learn.
+
+Apparently this is done by decomposing the joint distribution as a product of simpler distributions.
+
+For example:
+P(Spam ^ W0 ^ W1 ^ ... ^ Wn-1)
+=
+P(Spam) x P(W0 | Spam) x P(W1 | Spam ^ W0) x ... x P(Wn-1 | Spam ^ W0 ^ W1 ^ ... ^ Wn-2)
+
+
+Then to simplify this further we just assume that the probability of appearance of a word knowing the nature of text (spam or not) is independent of the appearance of the other words.
+
+For instance, we assume that:
+
+P(W1 | Spam ^ W0) = P(W1 | Spam)
+
+so that 
+
+P(Spam ^ W0 ^ W1 ^ ... ^ Wn-1)
+=
+P(Spam) x ∏ P(Wn | Spam), for n=0 to N-1
+
+
+So we got our classifier but because we introduced assumtions of independence, we call it a Naive Bayes Classifier.
+
+Let's move on to tweaking the stimation aka Laplace smoothing.
+
+
+2.11 Parametric forms
+
+The main point we're trying to reach here is to get rid of the zero probability for unseen events (which in our case is where a word never appeared in spam emails before but appears now).
+
+Currently we have the histogram form of the formula that account for what we see in the data (raw counting) but when we see something new, we get a zero probability. Thus we introduce smoothing and shift towards the parametric form of the formula which is just a tiny built in extra count so unseen things don't become impossible (i.e. zero probs).
