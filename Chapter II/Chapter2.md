@@ -186,3 +186,20 @@ Combining them solves the cold-start and personalization problem:
 - then adapt to the individual user via incremental updates (your spam is not everyone's spam)
 
 So the point is basically: these parameters define the classifier and the system needs a practical training strategy; start generic then personalise over time.
+
+
+
+2.13 Specification = variables + decomposition + parametric forms
+
+We call specification the part of the Bayesian program specified by the programmer. This part is always made of the same three subparts:
+
+1. variables: the choise of the relevant variables for the problem
+2. Decomposition: The expression of the joint probability distribution as the product of simpler distributions
+3. Parametric forms: The choice of mathematical function forms of each of these distributions
+
+
+2.14 Description = Specification + Identification
+
+We call description the probabilistic model of our problem. The description is the join probability distribution on the relevant variables. it is completely specified when the eventual free parameters of the specification are given values after an identification (learning) phase.
+
+
