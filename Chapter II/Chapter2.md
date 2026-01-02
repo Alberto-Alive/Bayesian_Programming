@@ -170,3 +170,19 @@ Because Wn is binary (true/false) then |Wn| can take two values (|Wn| = 2) thus:
 
 which allows for non zero probability when word was never seen in spam: if a^nt = 0 then:
 P(Wn == true | Spam == true) = (1 + 0) / (2+ a^t) > 0
+
+2.12 Identification pg 28
+
+Now that we have the formula we need to knwo the parameter values from data.
+
+Two practical ways to learn them:
+
+1. Batch learning: take a pile of emails already labeled spam/ham,
+count word occurences, estimate parameters all at once.
+2. Incremental - online - learning: as the user labels incoming emails, update the parameters continuously (word counts / probabilities shift over time)
+
+Combining them solves the cold-start and personalization problem:
+- start with generic defaults (from a database trained on many users) so it works "okay" immediately.
+- then adapt to the individual user via incremental updates (your spam is not everyone's spam)
+
+So the point is basically: these parameters define the classifier and the system needs a practical training strategy; start generic then personalise over time.
