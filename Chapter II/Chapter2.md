@@ -202,4 +202,4 @@ We call specification the part of the Bayesian program specified by the programm
 
 We call description the probabilistic model of our problem. The description is the join probability distribution on the relevant variables. it is completely specified when the eventual free parameters of the specification are given values after an identification (learning) phase.
 
-
+2.15 Question pg 29
