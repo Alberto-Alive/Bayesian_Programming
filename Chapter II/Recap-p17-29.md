@@ -46,3 +46,28 @@ and combining 1 and 2 would give us:
 
 P(Y | X) = P(Y) P(X | Y) / P(X)
 
+2.7 Syllogism
+
+1. Modus Ponenas (puts forward): a^[a=>b] => b
+if a is true and a implies b then b is true
+
+2. Modus Tollens (takes away): ¬b ^ [a => b] -> ¬a
+if b is flase and a implies b then a is false
+
+2.8 The marginalization rule
+
+To get the chance of Y happening add up all the chances in every possibl way X can happen:
+
+xΣ P(X ^ Y) = P(Y)
+
+which is derived from:
+![marginalisation rule](image-5.png)
+
+
+2.9 Joint distribution
+Apparently if you know the joint distribution on a set of two variables X and Y you can derive the following formulas which come down to sum, product, and division on the joint probability distribution P(X^Y)
+![5 formulas](image-6.png)
+
+
+2.5 Decomposition
+
