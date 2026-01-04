@@ -92,3 +92,20 @@ at
 
 thus we need to amend it to account for useen event -  Laplace succession law:
 ![Laplace succession](image-7.png)
+
+
+2.13 Specification = Variables + Decomposition + Parametric forms
+Specification is Bayesian is what the programmer has to specify:
+
+
+1. Variables: The choice of the relevant variables for the problem
+
+2. Decomposition: The expression of the join probability distribution as the product of simpler distributions.
+
+
+3. Parametric forms: the choice of mathematical function forms of each of these distributions
+
+
+2.14 Description = Specification + identification
+
+Description is the probabilistic model of our problem - is the joint probability distribution on the relevant variables and completely specified when the eventual free parameters of the specification are given values after an identification (learning) phase.
