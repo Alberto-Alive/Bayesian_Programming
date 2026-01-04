@@ -29,3 +29,20 @@ Given Wn is binary there are two probabilities:
 
 The shorthand expression:
 ![conditiona probability formula](image-4.png)
+
+2.5 Variable conjunction
+
+The probability of two variables happening the same time:
+
+P(Spam ^ Wn) which can take different values: { (false, false,), (false, true), (true, false), (true, true)}
+
+
+2.6 The conjunction postulate (bayes theorem)
+P(X^Y) is equivalent to:
+1. P(X) P(Y | X)
+2. P(Y) P(X | Y)
+
+and combining 1 and 2 would give us:
+
+P(Y | X) = P(Y) P(X | Y) / P(X)
+
