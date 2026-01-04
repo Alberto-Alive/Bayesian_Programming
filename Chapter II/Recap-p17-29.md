@@ -71,3 +71,24 @@ Apparently if you know the joint distribution on a set of two variables X and Y 
 
 2.5 Decomposition
 
+This part focuses on the three main qualities a programmer has to coin for a joint distribution to be good: good model, easy to compute and easy to learn.
+
+- good model: it matches relaity well enough for the task goal
+
+- easy to compute: you can actually run inference/trainign with available compute
+
+- easy to learn: you can fit its parameters/structure from data reliably
+
+
+2.11 Parametric forms
+Histograms naively ignore cases when an event is unseen so that:
+
+P(Wn | [Spam ==false]) = anf/
+af
+
+P(Wn | [Spam ==true]) = ant/
+at
+
+
+thus we need to amend it to account for useen event -  Laplace succession law:
+![Laplace succession](image-7.png)
