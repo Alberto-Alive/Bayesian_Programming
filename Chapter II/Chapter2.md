@@ -210,3 +210,9 @@ P(W0=true | S =true)=0.9 -> if it is spam, the word shows up 90% of the time.
 P(W0=true | S=false)=0.1 -> if it's not spam, the word shows up 10% of the time.
 
 I. Description fixes the world - meaning if the three numbers above are set they will represent the rules of the "universe" and thins like P(W0=true) or P(S=true|W0=true) will be forced by the math.
+
+II. Decomposition: compute a joint by "prior x likelihood"
+Example: P(S=true ^ W0=true)=P(S)*P(W0|S) = 0.2 * 0.9
+
+III. Marginalization
+
