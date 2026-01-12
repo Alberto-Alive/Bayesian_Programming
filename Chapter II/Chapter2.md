@@ -203,3 +203,10 @@ We call specification the part of the Bayesian program specified by the programm
 We call description the probabilistic model of our problem. The description is the join probability distribution on the relevant variables. it is completely specified when the eventual free parameters of the specification are given values after an identification (learning) phase.
 
 2.15 Question pg 29
+
+We assume the model tells us these numbers:
+P(S=true) =0.2 -> 20% of emails are spam overall (the best rate)
+P(W0=true | S =true)=0.9 -> if it is spam, the word shows up 90% of the time.
+P(W0=true | S=false)=0.1 -> if it's not spam, the word shows up 10% of the time.
+
+I. Description fixes the world - meaning if the three numbers above are set they will represent the rules of the "universe" and thins like P(W0=true) or P(S=true|W0=true) will be forced by the math.
