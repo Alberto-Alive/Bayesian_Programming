@@ -219,3 +219,16 @@ Given: P(W0=true) = P(S=true ^ W0=true) + P(S=false ^ W0=true) = 0.2*0.9 + 0.8*0
 
 IV. Bayes rule: update the spam probability after seeing the word
 P(S=true | W0 = true) = P(S)P(W0|S)/P(W0) = 0.18/0.26= 0.692
+
+V. Searched /Known /Free sets: what question are you asking?
+
+Searched = {S} (we want spam or not)
+Known = {W0=true} (we observed the word appears)
+Free = {} (nothing else exists to be unknown)
+
+P(Searched | known) = P(Searched ^ known) / P(known)
+
+where:
+P(Searched∧known)=Free∑​P(Searched∧known∧Free)
+and:
+P(known)=Searched,Free∑​P(Searched∧known∧Free)
