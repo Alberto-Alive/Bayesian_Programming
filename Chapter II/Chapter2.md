@@ -214,5 +214,8 @@ I. Description fixes the world - meaning if the three numbers above are set they
 II. Decomposition: compute a joint by "prior x likelihood"
 Example: P(S=true ^ W0=true)=P(S)*P(W0|S) = 0.2 * 0.9
 
-III. Marginalization
+III. Marginalization: compute P(W0=true) by mixing spam and not-spam
+Given: P(W0=true) = P(S=true ^ W0=true) + P(S=false ^ W0=true) = 0.2*0.9 + 0.8*0.1 = 0.18 + 0.08 = 0.26
 
+IV. Bayes rule: update the spam probability after seeing the word
+P(S=true | W0 = true) = P(S)P(W0|S)/P(W0) = 0.18/0.26= 0.692
