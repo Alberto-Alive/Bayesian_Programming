@@ -234,3 +234,9 @@ and:
 P(known)=Searched,Free∑​P(Searched∧known∧Free)
 
 Any probability question is just: what do you want to know, what do you know already, and what else exists in the model that you don’t know—then you compute by ‘summing out’ the unknown leftovers.
+
+2.16 Bayesian program = Description + Question
+
+A Bayesian program will always have this simple structure:
+
+![bayesian structure](image-8.png)
