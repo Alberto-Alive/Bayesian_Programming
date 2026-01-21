@@ -11,3 +11,6 @@ It maps 1:1 to the book:
 - predict = "Question" as in P(Spam | w)
 
 - evaluate = reproduce Table-style results / sanity checks
+
+
+[config.py]
