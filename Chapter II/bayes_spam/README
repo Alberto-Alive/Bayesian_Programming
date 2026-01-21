@@ -1,0 +1,13 @@
+This small project tries to apply in practice the concepts provided in Chapter II.
+
+It maps 1:1 to the book:
+
+- preprocessing/features = turning text into the binary variable Wn
+
+- model = user "Specification + Parametric forms" (decomposition + Laplace)
+
+- train = "Identification"
+
+- predict = "Question" as in P(Spam | w)
+
+- evaluate = reproduce Table-style results / sanity checks
