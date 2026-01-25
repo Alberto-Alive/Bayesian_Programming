@@ -16,4 +16,8 @@ class BinaryWordVectorizer:
     last_fit_params: Dict[str, Any] = field(default_factory=dict, init=False)
     
     def __post_init__(self) -> None:
+        self._rebuild_index()
         
+    @property
+    def n_features(self) -> None:
+        return len(self.vocab)
