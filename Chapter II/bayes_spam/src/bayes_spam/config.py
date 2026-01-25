@@ -31,3 +31,21 @@ PriorMode = Literal["fixed", "learned"]
 # Default prior mode and prior spam is true
 DEFAULT_PRIOR_MODE: PriorMode = "fixed"
 DEFAULT_PRIOR_SPAM_TRUE: float = 0.75 # complement is (1 - this)
+
+
+# Vocabulary / feature configuration
+VocabMode = Literal["fixed", "top_n"]
+
+
+# The fixed vocab would reproduce the tables/results in chapter 2 whereas top_n is for general training
+DEFAULT_VOCAB_MODE: VocabMode = "fixed"
+
+# The 5 words hand pciked in chapter two (Table 2.1/2.2 example)
+
+CHAPTER2_FIXED_VOCAB: tuple[str, ...] = (
+    "fortune",
+    "next",
+    "programming",
+    "money",
+    "you",
+)
