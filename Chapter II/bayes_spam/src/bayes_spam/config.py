@@ -49,3 +49,50 @@ CHAPTER2_FIXED_VOCAB: tuple[str, ...] = (
     "money",
     "you",
 )
+
+
+# Tokenization / filtering knobs
+DEFAULT_TOKEN_MIN_LEN: int = 2
+DEFAULT_ALLOW_NUMBERS: bool = False
+
+DEFAULT_ASCII_ONLY: bool = False
+
+
+# -----------------------------
+# Optional default paths
+# -----------------------------
+DEFAULT_MODEL_PATH: str = "models/spam_model.json"
+DEFAULT_TRAIN_DATA_PATH: str = "data/processed/train.jsonl"
+
+
+@dataclass(frozen = True)
+class Settings:
+    """
+    Immutable settings bundle that can be passed around instead of importing each individual constant
+    """
+    # Feature space
+    n_vocab: int = DEFAULT_N_VOCAB
+    vocab_mode: VocabMode = DEFAULT_VOCAB_MODE
+    # we''l make it a sequence to be more flexible
+    fixed_vocab: Sequence[str] = CHAPTER2_FIXED_VOCAB
+
+
+    # Prior
+    prior_mode: PriorMode = DEFAULT_PRIOR_MODE
+    prior_spam_true: float = DEFAULT_PRIOR_SPAM_TRUE
+
+
+    # Decision rule
+    threshold: float = DEFAULT_THRESHOLD
+
+
+    # Token controls (used by preprocessing/features)
+    token_min_len: int = DEFAULT_TOKEN_MIN_LEN
+    allow_numbers: bool = DEFAULT_ALLOW_NUMBERS
+    ascii_only: bool = DEFAULT_ASCII_ONLY
+
+
+    # Paths
+    model_path: str = DEFAULT_MODEL_PATH
+    train_data_path: str = DEFAULT_TRAIN_DATA_PATH  
+        
