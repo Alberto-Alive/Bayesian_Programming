@@ -21,3 +21,37 @@ class BinaryWordVectorizer:
     @property
     def n_features(self) -> None:
         return len(self.vocab)
+    
+    def _rebuild_index(self) -> None:
+        self.word_to_idx = {w:i for i, w in enumerate(self.vocab)}
+        
+        
+    def fit(
+        self, 
+        tokenized_emails: Iterable[Collection[str]],
+        N: int,
+        *,
+        min_df: int = 1,
+        min_len: int = 2,
+        max_len: Optional[int] = None,
+    ) -> "BinaryWordVectorizer":
+        if N <= 0: 
+            raise ValueError("N must be a positive integer.")
+        df_counter: Counter[str] = Counter()
+        
+        for tokens in tokenized_emails:
+            seen = set(tokens)
+            filtered: List[str] = []
+            for t in seen:
+                if not isinstance(t, str):
+                    continue
+                if len(t) < min_len:
+                    continue
+                if max_len is not None and len(t) > max_len:
+                    continue
+                filtered.append(t)
+            df_counter.update(filtered)
+            # min_diff helps us filter out words that are quite rare i.e. seen in a few emails only
+        items = [(tok, df) for tok, df in df_counter.items() if df >= min_df]
+        
+    
