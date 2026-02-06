@@ -58,4 +58,18 @@ class BinaryWordVectorizer:
         # bcs sort does ascending order by default we have to times it by -1 to inverse that ordering.. trick
         items.sort(key=lambda x: (-x[1], x[0]))
         
+        if len(items) < N:
+            raise ValueError(
+                f"Not enough unique tokens to build vocab of size {N}"
+                f"Have {len(items)} after filtering (min_df={min_df}, min_len={min_len}, max_len={max_len})"
+            )
+        
+        self.vocab = [tok for tok, _df in items[:N]]
+        self._rebuild_index()
+        self.last_fit_params = {"N": N, "min_df": min_df, "min_len": min_len, "max_len": max_len}
+        return self
+    
+    def transform(self, tokens: Collection[str]) -> List[int]:
+        if not self.vocab:
+            raise ValueError("Vectorizer has no vocab. Call fit(....) or construct with a fixed vocab first")
     
