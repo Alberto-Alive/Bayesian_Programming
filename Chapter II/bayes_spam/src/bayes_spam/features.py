@@ -54,4 +54,8 @@ class BinaryWordVectorizer:
             # min_diff helps us filter out words that are quite rare i.e. seen in a few emails only
         items = [(tok, df) for tok, df in df_counter.items() if df >= min_df]
         
+        # sort these pairs by df firstly then by letters
+        # bcs sort does ascending order by default we have to times it by -1 to inverse that ordering.. trick
+        items.sort(key=lambda x: (-x[1], x[0]))
+        
     
