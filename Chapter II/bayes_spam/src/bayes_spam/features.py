@@ -72,4 +72,30 @@ class BinaryWordVectorizer:
     def transform(self, tokens: Collection[str]) -> List[int]:
         if not self.vocab:
             raise ValueError("Vectorizer has no vocab. Call fit(....) or construct with a fixed vocab first")
+        vec = [0] * len(self.vocab)
+        for t in tokens:
+            i = self.word_to_idx.get(t)
+            if i is not None:
+                vec[i] = 1
+        return vec
     
+    def transform_many(self, tokenized_emails: Iterable[Collection[str]]) -> List[List[int]]:
+        return [self.transform(tokens) for tokens in tokenized_emails]
+    
+    
+    def fit_transform(
+        self, tokenized_emails: list[Collection[str]],
+        N: int,
+        *,
+        min_df: int =1,
+        min_len: int =2,
+        max_len: Optional[int] =None,
+    ) -> List[List[int]]:
+        self.fit(tokenized_emails, N, min_df=min_df, min_len=min_len, max_len=max_len)
+        return self.transform_many(tokenized_emails)
+    
+    def to_dict(self) -> Dict[str, Any]:
+        return {
+            "vocab": list(self.vocab),
+            "last_fit_params": dict(self.last_fit_params),
+        }
