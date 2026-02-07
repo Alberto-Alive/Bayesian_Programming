@@ -99,3 +99,14 @@ class BinaryWordVectorizer:
             "vocab": list(self.vocab),
             "last_fit_params": dict(self.last_fit_params),
         }
+
+    @classmethod
+    def from_dict(cls, d: Dict[str, Any]) -> "BinaryWordVectorizer":
+        vocab = d.get("vocab")
+        if not isinstance(vocab, list) or not all(isinstance(x, str) for x in vocab):
+            raise ValueError("Invalid vectorizer dict: expected key 'vocab' as list[str]" )
+        vec = cls(vocab=vocab)
+        params = d.get("last_fit_params")
+        if isinstance(params, dict):
+            vec.last_fit_params = dict(params)
+        return vec
