@@ -22,4 +22,9 @@ def _clamp_prob(p: float, eps: float = 1e-12) -> float:
     if p > 1.0 - eps:
         return 1.0 -eps
     return p
-        
+      
+      
+        # so we're just gonna do the naive one bcs interdependance between probs would be too complciated
+@dataclass
+class NaiveBayesSpamModel:
+    
