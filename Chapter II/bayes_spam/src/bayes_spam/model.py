@@ -76,3 +76,8 @@ class NaiveBayesSpamModel:
                 f"nfi/nti must have length n_features "
                 f"(len(nfi)={len(self.nfi)}, len(nti)={len(self.nti)}, n_features={self.n_features})"
             )
+
+      
+        #  perhaps guard against case when user provides only one fixed prior
+        if (self.prior_spam is None) ^ (self.prior_not_spam is None):
+            raise ValueError("Either set both prior_spam and prior_not_spam or leave both as None")  
