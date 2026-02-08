@@ -71,4 +71,8 @@ class NaiveBayesSpamModel:
             
             
         # let's guard agains different nfit/nti to n_features length
-        
+        if len(self.nfi) != self.n_features or len(self.nti) != self.n_features:
+            raise ValueError(
+                f"nfi/nti must have length n_features "
+                f"(len(nfi)={len(self.nfi)}, len(nti)={len(self.nti)}, n_features={self.n_features})"
+            )
