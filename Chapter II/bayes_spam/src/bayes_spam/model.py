@@ -81,3 +81,15 @@ class NaiveBayesSpamModel:
         #  perhaps guard against case when user provides only one fixed prior
         if (self.prior_spam is None) ^ (self.prior_not_spam is None):
             raise ValueError("Either set both prior_spam and prior_not_spam or leave both as None")  
+        
+        
+        #  Check and normalise prior_spam and prior_not_spam if needed using above clamp_init
+        if self.prior_spam is not None:
+            s = float(self.prior_spam) + float(self.prior_not_spam)
+            if s <= 0:
+                raise ValueError("The sum of prior_spam and prior_not_spam should be higher than zero")
+            # check if self.prior_spam and self.prior_not_spam is within the limits 
+            self.prior_spam  = _clamp_prob(float(self.prior_spam) / s, self.eps)
+            self.prior_not_spam = _clamp_prob(float(self.prior_not_spam) / s, self.eps)
+            
+        
