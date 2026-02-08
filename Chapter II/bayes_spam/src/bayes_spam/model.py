@@ -27,4 +27,48 @@ def _clamp_prob(p: float, eps: float = 1e-12) -> float:
         # so we're just gonna do the naive one bcs interdependance between probs would be too complciated
 @dataclass
 class NaiveBayesSpamModel:
+    """
+    Docstring for NaiveBayesSpamModel: spam filter over binary word-presence features.
     
+    Counters:
+        n_features: the number of words in vocab we use to determine if an email is spam
+        nf: number of non-spam emails
+        nt: number of spam emails
+        ngi[i]: number of non-spam emails where feature i is 1 - where a certain word appears
+        nti[i]: number of spam emails where feature i is 1
+        
+        Priors:
+            You can either:
+                - set fixed priors (prior_spam, prior_not_spam) - bias the model at need, or
+                - learn them from nf/nt 
+        
+    """
+    
+    n_features: int
+    nf: int = 0
+    nt: int = 0
+    nfi: List[int] = field(default_factory=list)
+    nti: List[int] = field(default_factory=list)
+    
+    # two variables to hold amount of spam with/out priors
+    
+    prior_spam: Optional[float] = None
+    prior_not_spam: Optional[float] = None
+    
+    # this is used in limits of logs/divisions
+    eps: float = 1e-12
+    
+    
+    def __post_init__(self) -> None:
+        if self.n_feratures <= 0:
+            raise ValueError("n_features must be positive")
+        
+        # create the non-spam word-count list (nfi) and the spam word-count list (nti) if not exists
+        if not self.nfi:
+            self.nfi = [0] * self.n_features
+        if not self.nti:
+            self.nti = [0] * self.n_features
+            
+            
+        # let's guard agains different nfit/nti to n_features length
+        
